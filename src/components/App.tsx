@@ -24,6 +24,8 @@ export default function App() {
                         'cursor-pointer text-blue-600 underline hover:text-blue-800',
                         // Disabled
                         'disabled:cursor-auto disabled:text-gray-500',
+                        // Text alignment
+                        'break-words text-left',
                         // Not selected
                         !isCurrent && !link.selected && 'line-through',
                       )}
