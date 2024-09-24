@@ -10,8 +10,8 @@ export default function App() {
     <div className="mx-auto max-w-prose p-2">
       {prev.concat(current).map((item) => {
         return (
-          <div className="pt-4" key={item.id}>
-            <p>{item.text}</p>
+          <section className="pt-4" key={item.id}>
+            <h3>{item.text}</h3>
             <ol className="list-inside list-decimal pt-4">
               {item.links.map((link) => {
                 const isCurrent = item === current;
@@ -37,7 +37,7 @@ export default function App() {
                 );
               })}
             </ol>
-          </div>
+          </section>
         );
       })}
     </div>
