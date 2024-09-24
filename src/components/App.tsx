@@ -36,6 +36,7 @@ export default function App() {
                   </li>
                 );
               })}
+              {item.links.length === 0 && <li>The end</li>}
             </ol>
           </section>
         );
