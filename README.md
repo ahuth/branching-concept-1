@@ -1,3 +1,3 @@
-# vite-start
+# branching-concept-1
 
-Template with Vite, React, TypeScript, and Tailwind.
+POC for some narrative branching game mechanics
