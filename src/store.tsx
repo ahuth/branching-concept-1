@@ -6,7 +6,6 @@ type State = {
   prev: Scenario[];
   actions: {
     goto: (link: Link) => void;
-    startOver: () => void;
   };
 };
 
@@ -30,14 +29,6 @@ export const useStore = create<State>((set) => {
           return {
             current: next,
             prev: [...state.prev, current],
-          };
-        });
-      },
-      startOver: () => {
-        set((state) => {
-          return {
-            current: scenarios[0],
-            prev: [...state.prev, state.current],
           };
         });
       },

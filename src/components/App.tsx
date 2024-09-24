@@ -36,17 +36,7 @@ export default function App() {
                   </li>
                 );
               })}
-              {item.links.length === 0 && (
-                <li className="inline-flex items-center gap-2">
-                  <span>The end</span>
-                  <button
-                    className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 active:bg-blue-900"
-                    onClick={actions.startOver}
-                  >
-                    Start over
-                  </button>
-                </li>
-              )}
+              {item.links.length === 0 && <li>The end</li>}
             </ol>
           </section>
         );
