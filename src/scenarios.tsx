@@ -43,4 +43,27 @@ export const scenarios: Scenario[] = [
     text: 'The cat rolls its eyes and says "Ooookkkayyyy, guess we\'re just going to ignore me, then. Suit yourself"',
     links: [],
   },
+  {
+    id: '4',
+    text: (
+      <span>
+        He squints at you. "Oh, okay. It's like that. Sure. Just take your
+        payment and go."
+        <br />
+        He toss's a bag of cat treats in your direction, and then slinks off.
+      </span>
+    ),
+    links: [],
+  },
+  {
+    id: '5',
+    text: (
+      <span>
+        He nods. "Good boy".
+        <br />
+        He toss's a bag of cat treats in your direction, and then slinks off.
+      </span>
+    ),
+    links: [],
+  },
 ];
