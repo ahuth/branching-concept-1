@@ -27,7 +27,16 @@ export const scenarios: Scenario[] = [
   {
     id: '2',
     text: '"Is it done? Did you kill him like we agreed?"',
-    links: [],
+    links: [
+      {
+        text: '"Holy shit balls, what the F are you talking about?" Horror dawns on you. What is going on, and why?',
+        dest: '4',
+      },
+      {
+        text: 'Play it cool. "Yes, of course it\'s done."',
+        dest: '5',
+      },
+    ],
   },
   {
     id: '3',
