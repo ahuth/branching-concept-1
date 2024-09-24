@@ -36,7 +36,9 @@ export default function App() {
                   </li>
                 );
               })}
-              {item.links.length === 0 && <li>The end</li>}
+              {item.links.length === 0 && (
+                <li>The end. Reload to start over ☝️</li>
+              )}
             </ol>
           </section>
         );
