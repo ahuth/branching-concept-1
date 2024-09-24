@@ -1,27 +1,34 @@
 import {create} from 'zustand';
-import {scenarios, type Scenario} from './scenarios';
+import {scenarios, type Scenario, type Link} from './scenarios';
 
 type State = {
-  stack: Scenario[];
+  current: Scenario;
+  prev: Scenario[];
   actions: {
-    add: (id: string) => void;
+    goto: (link: Link) => void;
   };
 };
 
 export const useStore = create<State>((set) => {
   return {
-    stack: [scenarios[0]],
+    current: scenarios[0],
+    prev: [],
     actions: {
-      add: (id) => {
+      goto: (link) => {
         set((state) => {
-          const scenario = scenarios.find((s) => s.id === id);
+          const current = state.current;
+          const next = scenarios.find((s) => s.id === link.dest);
 
-          if (!scenario) {
+          if (!next) {
             return {};
           }
 
+          // Is it okay to imperatively updated the property like this? Or should this be cloned?
+          link.selected = true;
+
           return {
-            stack: [...state.stack, scenario],
+            current: next,
+            prev: [...state.prev, current],
           };
         });
       },

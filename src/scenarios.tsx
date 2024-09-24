@@ -3,7 +3,13 @@ import type {ReactNode} from 'react';
 export interface Scenario {
   id: string;
   text: ReactNode;
-  links: Array<{text: string; dest: string}>;
+  links: Link[];
+}
+
+export interface Link {
+  text: string;
+  dest: string;
+  selected?: boolean;
 }
 
 export const scenarios: Scenario[] = [

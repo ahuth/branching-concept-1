@@ -1,24 +1,33 @@
+import clsx from 'clsx';
 import {useStore} from '../store';
 
 export default function App() {
   const actions = useStore((state) => state.actions);
-  const stack = useStore((state) => state.stack);
+  const current = useStore((state) => state.current);
+  const prev = useStore((state) => state.prev);
 
   return (
     <div className="mx-auto max-w-prose p-2">
-      {stack.map((item, i) => {
-        const isLastItem = i === stack.length - 1;
+      {prev.concat(current).map((item) => {
         return (
           <div className="pt-4" key={item.id}>
             <p>{item.text}</p>
             <ol className="list-inside list-decimal pt-4">
               {item.links.map((link) => {
+                const isCurrent = item === current;
                 return (
                   <li key={link.text}>
                     <button
-                      disabled={!isLastItem}
-                      className="cursor-pointer text-blue-600 underline hover:text-blue-800 disabled:cursor-auto disabled:text-gray-400 disabled:no-underline"
-                      onClick={() => actions.add(link.dest)}
+                      disabled={!isCurrent}
+                      className={clsx(
+                        // Base
+                        'cursor-pointer text-blue-600 underline hover:text-blue-800',
+                        // Disabled
+                        'disabled:cursor-auto disabled:text-gray-500',
+                        // Not selected
+                        !isCurrent && !link.selected && 'line-through',
+                      )}
+                      onClick={() => actions.goto(link)}
                     >
                       {link.text}
                     </button>
